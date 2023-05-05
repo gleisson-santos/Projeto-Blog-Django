@@ -20,6 +20,7 @@ class PostIndex(ListView):
 
     #obeter numero de comentarios caso ele esteja postado = True
         qs = qs.annotate(
+            #Caso/quando o comentario estiver publicado conte 1
             numero_comentarios=Count(
                 Case(
                     When(comentario__publicado_comentario=True, then=1)

@@ -78,6 +78,18 @@ class PostDetalhes(UpdateView):
     form_class =  FormComentario
     context_object_name = 'post'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+        comentarios = Comentario.objects.filter(
+            publicado_comentario=True,
+            post_comentario = post.id)
+        context['comentarios'] = comentarios
+
+
+        return context
+    
+
 
     def form_valid(self, form):
         post = self.get_object()
@@ -87,8 +99,7 @@ class PostDetalhes(UpdateView):
         if self.request.user.is_authenticated:
             comentario.usuario_comentario =  self.request.user
             
-
-
+        
         comentario.save()
         messages.success(self.request, 'Comentario postado com sucesso!') 
         return redirect('post_detalhes', pk=post.id)

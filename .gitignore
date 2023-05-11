@@ -104,8 +104,11 @@ env/
 ENV/
 env.bak/
 venv.bak/
-pc_casa/
 venv/
+
+pc_casa/
+pc_trampo/
+servidor/
 
 
 # Spyder project settings

@@ -20,7 +20,7 @@ SECRET_KEY = "django-insecure-wck$!j)_e83l+ga@^kyij)6af&l-sm!oa^4_*p2102rpv8%vs@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['35.199.71.36', 'blog.controll-serv.com']
 
 
 
@@ -147,8 +147,7 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 
-
 try:
     from .local_settings import *
-except ImportError() :
+except ImportError:
     pass

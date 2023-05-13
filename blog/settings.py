@@ -7,6 +7,7 @@ import os
 from django.contrib.messages import constants
 
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,8 +21,9 @@ SECRET_KEY = "django-insecure-wck$!j)_e83l+ga@^kyij)6af&l-sm!oa^4_*p2102rpv8%vs@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['35.199.71.36']
 
+#e
 
 
 # Application definition
@@ -141,15 +143,13 @@ INSTALLED_APPS += ('django_summernote', )
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
-
-# try:
-#     from .local_settings import *
-
-# except:
-#     pass
+try:
+    from .local_settings import *
+except ImportError:
+    pass

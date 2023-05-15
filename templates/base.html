@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt">
 
 <head>
     <title> {% block titulo %} {% endblock %} Portfólio | Gleisson Santos</title>
     {% include 'parciais/_head.html' %}
+
 </head>
 
 <body>
@@ -14,13 +16,14 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            {% block conteudo %}{% endblock %}
+            {% block conteudo %}
+
+            {% endblock %}
         </div>
     </div>
 </div>
 
 {% include 'parciais/_footer.html' %}
-
 
 </body>
 

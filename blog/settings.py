@@ -135,6 +135,17 @@ MESSAGE_TAGS = {
 }
 
 INSTALLED_APPS += ('django_summernote', )
+# Tamanho máximo do upload em bytes
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10 MB
+
+# Tamanho máximo do arquivo em bytes
+MAX_UPLOAD_SIZE = 5242880  # 5 MB
+
+# Configurações do Summernote
+SUMMERNOTE_CONFIG = {
+    'attachment_filesize_limit': MAX_UPLOAD_SIZE,
+}
+
 
 
 

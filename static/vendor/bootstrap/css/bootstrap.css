@@ -10036,3 +10036,9 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+.imagem-redimensionada {
+    width: 500px; /* largura desejada */
+    height: auto; /* altura automática para preservar a proporção */
+}

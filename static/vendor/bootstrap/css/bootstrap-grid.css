@@ -3717,3 +3717,9 @@ html {
   }
 }
 /*# sourceMappingURL=bootstrap-grid.css.map */
+
+
+.imagem-redimensionada {
+    width: 500px; /* largura desejada */
+    height: auto; /* altura automática para preservar a proporção */
+}

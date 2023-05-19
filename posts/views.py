@@ -19,6 +19,7 @@ class PostIndex(ListView):
     #ordenar os post de forma invertida e filtrando itens publicados apenas
     def get_queryset(self):
         qs =  super().get_queryset()
+        qs = qs.select_related('categoria_post')
         qs = qs.order_by('-id').filter(publicado_post=True)
 
     #obeter numero de comentarios caso ele esteja postado = True

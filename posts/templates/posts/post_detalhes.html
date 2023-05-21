@@ -55,25 +55,16 @@
      <!-- SUB POST COM IMAGEM-->
     <div class="row pt-2">
         <div class="col-xl"></div>
-        <div class="col-xl-8" class='img'>
+        <div class="col-xl-8">
                   
             {% if post.imagem_post %}
-                {% comment %} <img class="img-fluid pb-5 custom-image" src="{{ post.imagem_post.url }}" alt="{{ post.titulo_post }}">
-                <img class="img-fluid pb-5 custom-image" src="{{ post.conteudo_post.url }}"> {% endcomment %}
+                <img class="img-fluid pb-5 custom-image" src="{{ post.imagem_post.url }}" alt="{{ post.titulo_post }}">
+                {% comment %} <img class="img-fluid pb-5 custom-image" src="{{ post.conteudo_post.url }}"> {% endcomment %}
             {% endif %}
             {{ post.conteudo_post | safe}}
         </div>        
         <div class="col-xl"></div>
     </div>
-    <script>
-        $(document).ready(function(){
-        $('.img')
-            .wrap('<span style="display:inline-block"></span>')
-            .css('display', 'block')
-            .parent()
-            .zoom();
-        });
-    </script>
 
 
 
@@ -123,7 +114,7 @@
          <div class="col-xl"></div>
     </div> {% endcomment %}
 
-<div class="row pt-5">
+{% comment %} <div class="row pt-5">
     <div class="col-xl"></div>
     <div class="col-xl-8">
         <h2 class="my-3">Deixe um comentário</h2>
@@ -146,6 +137,35 @@
             </table>
         </form>
     </div>
+    <div class="col-xl"></div>
+</div> {% endcomment %}
+
+<div class="row pt-5">
+    <div class="col-xl"></div>
+    <div class="col-xl-8">
+        <h2 class="my-3">Deixe um comentário</h2>
+
+        <form method="POST" action="#envia_comentario" class="custom-form">
+            {% csrf_token %}
+
+            {% for hidden_field in form.hidden_fields %}
+                {{ hidden_field }}
+            {% endfor %}
+
+            {% for visible_field in form.visible_fields %}
+            <div class='form-group'>
+                {{ visible_field.label_tag }} <br>
+                {{ visible_field }}
+                {{ visible_field.errors }}
+            </div>
+            {% endfor %}
+
+            {%  include  'parciais/_messages.html' %}
+            <button id="envia_comentario" type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+    </div>
+
     <div class="col-xl"></div>
 </div>
 

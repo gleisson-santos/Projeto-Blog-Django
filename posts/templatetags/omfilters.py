@@ -12,7 +12,6 @@ def plural_comentarios(num_comentarios):
         elif num_comentarios == 1:
             return f'{num_comentarios} comentário'
         else:
-            return f'{num_comentarios} comentários'
-            
+            return f'{num_comentarios} comentários'  
     except:
         return f'{num_comentarios} comentário(s)'

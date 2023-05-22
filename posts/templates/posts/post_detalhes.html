@@ -10,35 +10,6 @@
 
 <div class="container">
 
-    {% comment %} <br>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-            <img class="d-block w-100" src="{{ post.conteudo_post.url }}" alt="Primeiro Slide" style="width: 500px; height: 500px;">
-            </div>
-            <div class="carousel-item">
-            <img class="d-block w-100" src="{% static 'vendor/imagens/windows_field_grass_operating_system_74340_1280x720.jpg' %}" alt="Segundo Slide" style="width: 500px; height: 500px;">
-            </div>
-            <div class="carousel-item">
-            <img class="d-block w-100" src="{% static 'vendor/imagens/linux_debian_brand_logo_spiral_93908_1280x720.jpg' %}" alt="Terceiro Slide" style="width: 500px; height: 500px;">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Anterior</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Próximo</span>
-        </a>
-    </div> {% endcomment %}
-
-
      <!-- POST -->
     <div class="row pt-2">
         <div class="col-xl"></div>
@@ -57,15 +28,31 @@
         <div class="col-xl"></div>
         <div class="col-xl-8">
                   
-            {% if post.imagem_post %}
+            {% comment %} {% if post.imagem_post %}
                 <img class="img-fluid pb-5 custom-image" src="{{ post.imagem_post.url }}" alt="{{ post.titulo_post }}">
-                {% comment %} <img class="img-fluid pb-5 custom-image" src="{{ post.conteudo_post.url }}"> {% endcomment %}
-            {% endif %}
+                 <img class="img-fluid pb-5 custom-image" src="{{ post.conteudo_post.url }}"> 
+            {% endif %} {% endcomment %}
+
+            {% comment %} {% if post.images.all %}
+                {% for post_image in post.images.all %}
+                    <img class="img-fluid pb-5 custom-image" src="{{ post_image.image.url }}" alt="{{ post.titulo_post }}">
+                {% endfor %}
+            {% endif %} {% endcomment %}
+
+            {% for post_image in post.images.all %}
+                {% if post_image.image %}
+                    <a href="{{ post_image.image.url }}" data-lightbox="post-{{ post.id }}">
+                        <img class="img-fluid pb-5 custom-image" src="{{ post_image.image.url }}" alt="{{ post.titulo_post }}">
+                    </a>
+                {% endif %}
+            {% endfor %}
+
+
+
             {{ post.conteudo_post | safe}}
         </div>        
         <div class="col-xl"></div>
     </div>
-
 
 
     <!-- COMENTARIO -->

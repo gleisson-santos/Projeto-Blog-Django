@@ -97,7 +97,6 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'OPTIONS': {
             'charset': 'utf8',
-            'init_command': 'SET storage_engine=INNODB;',
         },
     }
 }
@@ -191,6 +190,7 @@ AUTHENTICATION_BACKENDS = [
     # Django ModelBackend is the default authentication backend.
     'django.contrib.auth.backends.ModelBackend',
 ]
+
 
 try:
     from .local_settings import *

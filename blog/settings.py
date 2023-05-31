@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "django.contrib.humanize",
     "crispy_forms",
     "crispy_bootstrap4",
-    "axes",
 ]
 
 MIDDLEWARE = [
@@ -52,7 +51,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "axes.middleware.AxesMiddleware",
 ]
 
 ROOT_URLCONF = "blog.urls"
@@ -95,9 +93,6 @@ DATABASES = {
         'USER': 'blogdjango',
         'PASSWORD': 'blogdjango@123',
         'HOST': '127.0.0.1',
-        'OPTIONS': {
-            'charset': 'utf8',
-        },
     }
 }
 

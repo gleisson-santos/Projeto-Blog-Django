@@ -88,7 +88,7 @@ DATABASES = {
         'PASSWORD': 'blogdjango@123',
         'HOST': '127.0.0.1',
         'NAME': 'meublog',
-	'PORT': '3306',
+        'PORT': '3306',
 
     }
 }

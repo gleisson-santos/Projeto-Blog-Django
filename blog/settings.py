@@ -88,7 +88,6 @@ DATABASES = {
         'HOST': 	'127.0.0.1',
         'USER':	'blogdjango',
         'PASSWORD': 	'blogdjango@123',
-        'PORT':	 '3306',
 
     }
 }
